@@ -8,7 +8,8 @@ export default class Recipe {
   async getRecipe() {
     try {
       const res = await axios(
-        `${proxy}https://www.food2fork.com/api/get?key=${key}&rId=${this.id}`
+        `${proxy}https://www.food2fork.com/api/get?key=${key}&rId=${this.id}`,
+        { headers: { "Access-Control-Allow-Origin": "*" } }
       );
       const data = res.data.recipe;
       this.title = data.title;
